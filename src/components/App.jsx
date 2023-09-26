@@ -44,4 +44,33 @@ export class App extends Component {
       };
     });
   };
+
+  changeFilter = event => {
+    this.setState({ filter: event.currentTarget.value.toLowerCase() });
+  };
+
+  getVisiblecontacts = () => {
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
+  render() {
+    const { filter } = this.state;
+    const visibleContacts = this.getVisiblecontacts();
+    return (
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm onSubmit={this.addContact} />
+        <h2>Contacts</h2>
+        <Filter value={filter} onChange={this.changeFilter} />
+        <ContactList
+          deleteContact={this.deleteContact}
+          contacts={visibleContacts}
+        />
+      </div>
+    );
+  }
 }
