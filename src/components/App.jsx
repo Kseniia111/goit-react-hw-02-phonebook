@@ -1,3 +1,4 @@
+import React from 'react';
 import { nanoid } from 'nanoid';
 import { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
@@ -21,9 +22,10 @@ export class App extends Component {
       name,
       number,
     };
+
     this.state.contacts.filter(
       contact =>
-        contact.name.toLocaleLowerCase().trim() ===
+        contact.name.toLowerCase().trim() ===
           newContact.name.toLowerCase().trim() ||
         contact.number.trim() === newContact.number.trim()
     ).length
