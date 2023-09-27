@@ -11,7 +11,7 @@ export class ContactForm extends Component {
   nameInputId = nanoid();
   numberInputId = nanoid();
 
-  handleChnage = event => {
+  handleChange = event => {
     const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
   };
@@ -21,6 +21,7 @@ export class ContactForm extends Component {
     this.props.onSubmit(this.state);
     this.reset();
   };
+
   reset = () => {
     this.setState({ name: '', number: '' });
   };

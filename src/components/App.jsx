@@ -51,7 +51,7 @@ export class App extends Component {
     this.setState({ filter: event.currentTarget.value.toLowerCase() });
   };
 
-  getVisiblecontacts = () => {
+  getVisibleContacts = () => {
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
@@ -61,7 +61,7 @@ export class App extends Component {
 
   render() {
     const { filter } = this.state;
-    const visibleContacts = this.getVisiblecontacts();
+    const visibleContacts = this.getVisibleContacts();
     return (
       <div>
         <h1>Phonebook</h1>
